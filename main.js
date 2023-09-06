@@ -6,7 +6,9 @@ const atividades = [];
 const notas = [];
 const spanAprovado = '<span class="resultado aprovado">Aprovado</span>';
 const spanReprovado = '<span class="resultado reprovado">Reprovado</span>';
-const notaMinima = parseFloat(prompt('Digite a nota mínima: '));
+const notaMinima = parseFloat(prompt('Digite a nota mínima até 10: '));
+
+notaMinima < 10 ? notaMinima : parseFloat(prompt('Digite a nota mínima até 10: '));
 
 form.addEventListener('submit', function(e){
     e.preventDefault();
@@ -36,8 +38,6 @@ function adicionaLinha() {
             inputNomeAtividade.value = '';
             inputNotaAtividade.value = '';
     }
-
-
 }
 
 function atualizaTabela() {
@@ -58,5 +58,5 @@ function calculaMediaFinal() {
         somaDasNotas += notas[i];   //Para pegar cada uma das notas no array e fazer a soma por conta do += 
     }
 
-    return somaDasNotas / notas.length;   //O return fará a média das somas
+    return (somaDasNotas / notas.length).toFixed(2);   //O return fará a média das somas
 }
